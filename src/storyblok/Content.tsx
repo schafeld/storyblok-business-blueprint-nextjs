@@ -21,6 +21,7 @@ import Tabs from './Tabs'
 import Card from './Card'
 import Button from './Button'
 import OllisNewUniversalBlock from './OllisNewUniversalBlock'
+import TeamMembers from './TeamMembers'
 
 export type ContentProps = {
   blok: Content

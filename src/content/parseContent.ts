@@ -10,7 +10,8 @@ import {
   map,
   lazy,
   type Parser,
-} from 'pure-parse'
+} from 'pure-parse';
+import type { OllisNewUniversalBlockContent } from './content-model'
 import {
   type AssetContent,
   type RichTextContent,
@@ -48,8 +49,9 @@ export const parseContent: Parser<Content> = lazy(() =>
     parseTabContent,
     parseTeamMembersContent,
     parseTeamMemberContent,
-    parseButtonContent,
-  ),
+  parseButtonContent,
+  parseOllisNewUniversalBlockContent,
+  )
 )
 
 const parseBackgroundColor = withDefault<BackgroundColor>(
@@ -76,6 +78,15 @@ const parseAssetContent = object<AssetContent>({
   copyright: optional(withDefault(parseString, undefined)),
   focus: optional(withDefault(parseString, undefined)),
 })
+
+// Parser for ollis-new-universal-block
+export const parseOllisNewUniversalBlockContent = object<OllisNewUniversalBlockContent>({
+  component: equals('ollis-new-universal-block'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  text: optional(parseString),
+  image: withDefault(parseAssetContent, undefined),
+});
 
 const parseBlockContent = object<BlockContent>({
   component: parseString,

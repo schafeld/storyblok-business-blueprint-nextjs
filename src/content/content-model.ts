@@ -19,6 +19,13 @@ export type Content =
   | TeamMembersContent
   | TeamMemberContent
   | ButtonContent
+  | OllisNewUniversalBlockContent;
+// New block type for ollis-new-universal-block
+export type OllisNewUniversalBlockContent = BlockContent<{
+  component: 'ollis-new-universal-block';
+  text?: string;
+  image?: AssetContent;
+}>
 
 /**
  * When the parsing of a component fails, fall back fack to this component.

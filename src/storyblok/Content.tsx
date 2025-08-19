@@ -10,8 +10,8 @@ import type {
   TeamMembersContent,
   CardContent,
   ButtonContent,
-} from '../content'
-import TeamMembers from './TeamMembers'
+  OllisNewUniversalBlockContent,
+} from '../content/content-model'
 import Page from './Page'
 import Testimonials from './Testimonials'
 import Testimonial from './Testimonial'
@@ -20,6 +20,7 @@ import Hero from './Hero'
 import Tabs from './Tabs'
 import Card from './Card'
 import Button from './Button'
+import OllisNewUniversalBlock from './OllisNewUniversalBlock'
 
 export type ContentProps = {
   blok: Content
@@ -54,6 +55,9 @@ function Content(props: ContentProps) {
       ) : null}
       {props.blok.component === 'button' ? (
         <Button blok={props.blok as ButtonContent} />
+      ) : null}
+      {props.blok.component === 'ollis-new-universal-block' ? (
+        <OllisNewUniversalBlock blok={props.blok as OllisNewUniversalBlockContent} />
       ) : null}
     </>
   )

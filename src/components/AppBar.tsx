@@ -21,6 +21,11 @@ const tabs = [
     label: 'About',
     href: '/about',
   },
+  // Add new main menu items here
+  {
+    label: 'Test Page',
+    href: '/test-page',
+  },
 ]
 
 function AppBarView(props: AppbarProps) {
